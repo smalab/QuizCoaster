@@ -25,11 +25,15 @@ public class TextRender : MonoBehaviour {
 	public string stageData;
 	public string[] text;
 	public string data;
+	public GameObject image1;
+	public GameObject image2;
+	public bool flag;
 	/// <summary>
 	/// ステージの文字列データの添え字
 	/// </summary>
 	public int stageDataIndex = 0;
 	public int textindex = 0;
+	public int num;
 	/// <summary>
 	/// 抽出した文字を格納する変数
 	/// </summary>
@@ -46,7 +50,9 @@ public class TextRender : MonoBehaviour {
 	/// </remarks>
 	void Start () {
 		// テキストデータの読み込み
+		TextureManager = GetComponent<TextureManager> ();
 		text = new string[100];
+		flag = false;
 		ReadTextData();
 	}
 	/// <summary>
@@ -59,7 +65,7 @@ public class TextRender : MonoBehaviour {
 		// フレーム増加
 		waitingTime += Time.deltaTime;
 		// もしも65フレーム経って、なおかつ全部出し切っていなければ。
-	if(/*waitingTime >= Time.deltaTime*100 && */stageDataIndex != stageData.Length){
+	if(/*waitingTime >= Time.deltaTime*100 && */flag == false && stageDataIndex != stageData.Length){
 			waitingTime = 0.0f;
 			// 文字の抽出
 			pattern = stageData[stageDataIndex];
@@ -67,9 +73,16 @@ public class TextRender : MonoBehaviour {
 			Debug.Log("text " + text[textindex]);
 			// 文字の比較
 			if(pattern == '\t'){
+				if(num == 0){
+					TextRender.Texture(image1);
+				}
+				data = string.Join (null, text);
+				image1.tag = (data);
+
 				//Debug.Log("text" + text);
-			} else if(pattern == '1'){
-				Debug.Log("pattern:1");
+			} else if(pattern == '\n'){
+				Debug.Log("\n");
+				flag = true;
 			} else if(pattern == '2'){
 				Debug.Log("pattern:2");
 			}
@@ -77,7 +90,8 @@ public class TextRender : MonoBehaviour {
 			stageDataIndex++;
 			textindex++;
 		}
-		data = string.Join (null, text);
+
+
 		Debug.Log ("data " + data);
 	}
 	/// <summary>
