@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 
 public class TextureManager : MonoBehaviour
 {
@@ -11,10 +11,20 @@ public class TextureManager : MonoBehaviour
 	Texture2D image2;
 	public GameObject left;
 	public GameObject right;
+	public int x = 10;
+	public int y = 0;
 
 
 
 	void Start() {
+		left = GameObject.CreatePrimitive (PrimitiveType.Cube);
+		right = GameObject.CreatePrimitive (PrimitiveType.Cube);
+		left.transform.position = new Vector3 (x, y, 0);
+		right.transform.position = new Vector3 (-x, y, 0);
+		left.transform.Rotate (0, 180, 0);
+		right.transform.Rotate (0, 180, 0);
+		left.transform.localScale = new Vector3(1, 1, 0.1f);
+		right.transform.localScale = new Vector3(1, 1, 0.1f);
 		//TextRender = GetComponent<TextRender>();
 		image1 = Resources.Load(BASE_TEXTURE) as Texture2D;
 		image2 = Resources.Load (SECOND_TEXTURE) as Texture2D;
