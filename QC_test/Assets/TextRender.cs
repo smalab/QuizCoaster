@@ -89,7 +89,7 @@ public class TextRender : MonoBehaviour {
 				if (flag == true && num == 0) {
 					data = string.Join (null, text);
 					Debug.Log ("num0 " + data);
-					TextureManager.LeftTexture (data);
+					TextureManager.LeftTag (data);
 					text = new string[100];
 					data = "";
 					num++;
@@ -98,7 +98,7 @@ public class TextRender : MonoBehaviour {
 				if (flag == true && num == 1) {
 					data = string.Join (null, text);
 					Debug.Log ("num1 " + data);
-					TextureManager.LeftTag (data);
+					TextureManager.LeftTexture (data);
 					text = new string[100];
 					data = "";
 					num++;
@@ -107,7 +107,7 @@ public class TextRender : MonoBehaviour {
 				if (flag == true && num == 2) {
 					data = string.Join (null, text);
 					Debug.Log ("num2 " + data);
-					TextureManager.RightTexture (data);
+					TextureManager.RightTag (data);
 					text = new string[100];
 					data = "";
 					num++;
@@ -117,7 +117,7 @@ public class TextRender : MonoBehaviour {
 				if (flag == true && num == 3) {
 					data = string.Join (null, text);
 					Debug.Log ("num3 " + data);
-					TextureManager.RightTag (data);
+					TextureManager.RightTexture (data);
 					text = new string[100];
 					data = "";
 					num++;

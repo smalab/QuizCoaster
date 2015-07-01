@@ -16,10 +16,15 @@ public class TextureManager : MonoBehaviour
 	public float x = -2.406f;
 	public float y = 1.802f;
 	public float z = -7.76f;
-	
+	private bool flag1;
+	private bool flag2;
+	public Changequestiontext Changequstiontext;
 	
 	
 	void Start() {
+		flag1 = false;
+		flag2 = false;
+		Changequstiontext = GetComponent<Changequestiontext> ();
 		left = GameObject.CreatePrimitive (PrimitiveType.Cube);
 		right = GameObject.CreatePrimitive (PrimitiveType.Cube);
 		left.transform.position = new Vector3 (x, y, z);
@@ -50,6 +55,8 @@ public class TextureManager : MonoBehaviour
 	}
 	
 	public void LeftTexture(string l_name) {
+		if (flag1 == true)
+			Changequestiontext.Change (l_name);
 		Debug.Log ("l_name" + l_name);
 		BASE_TEXTURE += l_name;
 		Debug.Log ("BASE " + BASE_TEXTURE);
@@ -60,18 +67,23 @@ public class TextureManager : MonoBehaviour
 	}
 	
 	public void RightTexture(string r_name) {
+		if (flag2 == true)
+			Changequestiontext.Change (r_name);
 		SECOND_TEXTURE += r_name;
 		image2 = Resources.Load(SECOND_TEXTURE) as Texture2D;
 		right.GetComponent<Renderer>().GetComponent<Renderer>().material.mainTexture = image2;
 	}
 	
 	public void LeftTag(string l_tag){
+		if (l_tag == "right")
+			flag1 = true;
 		left.tag = (l_tag);
 	}
 	
 	public void RightTag(string r_tag){
-		//Debug.Log ("righttag");
+		if (r_tag == "right")
+			flag2 = true;
 		right.tag = (r_tag);
 	}
-	
+
 }
