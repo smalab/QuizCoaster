@@ -1,0 +1,4 @@
+apple	right	grape	mistake	
+bus	right	taxi	mistake	
+coffee	mistake	cola	right	
+yamato	mistake	musashi	right	
