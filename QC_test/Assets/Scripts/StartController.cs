@@ -9,11 +9,13 @@ public class StartController : MonoBehaviour {
 	private int x;
 	public Button screenbutton;
 	public Text screentext;
-	public GameObject dungeon;
+	public GameObject dungeonway;
+	//public GameObject dungeon;
 
 	void Start () {
 		anim = GetComponent<Animator> ();
-		dungeon.GetComponent<dungeon> ().enabled = false;
+		//dungeon.GetComponent<dungeon> ().enabled = false;
+		dungeonway.GetComponent<dungeon> ().enabled = false;
 		gameObject.GetComponent<Startmove> ().enabled = false;
 
 	}
@@ -38,9 +40,11 @@ public class StartController : MonoBehaviour {
 		gameObject.GetComponent<Startmove> ().enabled = true;
 		yield return new WaitForSeconds (0.7f);
 		gameObject.GetComponent<Startmove> ().enabled = false;
-		dungeon.GetComponent<dungeon> ().enabled = true;
-		yield return new WaitForSeconds (6.9f);
-		dungeon.GetComponent<dungeon> ().enabled = false;
+		dungeonway.GetComponent<dungeon> ().enabled = true;
+		//dungeon.GetComponent<dungeon> ().enabled = true;
+		yield return new WaitForSeconds (10.0f/*6.9f*/);
+		dungeonway.GetComponent<dungeon> ().enabled = false;
+		//dungeon.GetComponent<dungeon> ().enabled = false;
 		anim.SetTrigger ("wait");
 		yield return new WaitForSeconds (0.5f);
 		QuestionSelect.StartUp ();
