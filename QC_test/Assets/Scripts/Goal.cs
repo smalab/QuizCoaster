@@ -11,8 +11,11 @@ public class Goal : MonoBehaviour {
 	public Image restartimage;
 	public GameObject dungeon;
 	private Animator anim;
+	TrueMove TrueMove;
 	
 	void Start () {
+		TrueMove = GetComponent<TrueMove> ();
+		TrueMove.reset ();
 		anim = GetComponent<Animator> ();
 		dungeon.GetComponent<dungeon> ().enabled = true;
 		success.enabled = false;
