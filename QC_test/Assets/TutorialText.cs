@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class Tutorialtext : MonoBehaviour {
+public class TutorialText : MonoBehaviour {
 	
 	private bool flag;
 	public string[] scenarios;
@@ -31,7 +31,7 @@ public class Tutorialtext : MonoBehaviour {
 		}
 	}
 	
-	public void Neutral(){
+	public void Startmessage(){
 		currentText = scenarios [0] + "\n" + scenarios [1];
 		
 		// 想定表示時間と現在の時刻をキャッシュ
