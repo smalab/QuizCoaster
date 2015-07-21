@@ -12,11 +12,11 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Player
-  User Layer 9: Enemy
-  User Layer 10: Bullet (Player)
-  User Layer 11: Bullet (Enemy)
-  User Layer 12: DestroyArea
+  User Layer 8: 
+  User Layer 9: 
+  User Layer 10: 
+  User Layer 11: 
+  User Layer 12: 
   User Layer 13: 
   User Layer 14: 
   User Layer 15: 
@@ -40,12 +40,4 @@ TagManager:
   - name: Default
     userID: 0
     uniqueID: 0
-    locked: 0
-  - name: Bullet
-    userID: 1
-    uniqueID: 3799605449
-    locked: 0
-  - name: Player
-    userID: 2
-    uniqueID: 979189183
     locked: 0
