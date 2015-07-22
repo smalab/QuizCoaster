@@ -18,7 +18,7 @@ public class ArrowController : MonoBehaviour {
 	public GameObject t_anim;
 	public GameObject text;
 	private bool flag;
-	public GameObject quetion;
+	//public GameObject quetion;
 
 	// Use this for initialization
 	void Start () {

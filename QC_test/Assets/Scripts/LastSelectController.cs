@@ -14,7 +14,7 @@ public class LastSelectController : MonoBehaviour {
 
 	// imageをタッチしたらそのimageの方に走って移動する
 	void Update (){
-		if (gyroselect.selecti () != null) // imageにタッチしたかどうか
+		if (Answer.touch () == true) // imageにタッチしたかどうか
 			anim.SetTrigger ("run");
 
 		// imageのtagを取得するとその方向に走る

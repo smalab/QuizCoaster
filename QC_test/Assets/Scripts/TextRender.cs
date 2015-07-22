@@ -26,6 +26,7 @@ public class TextRender : MonoBehaviour {
 	public string[] text;
 	public string data;
 	TextureManager TextureManager;
+	//QuestionSelect QuestionSelect;
 	//public GameObject image1;
 	//public GameObject image2;
 	public bool flag;
@@ -43,6 +44,7 @@ public class TextRender : MonoBehaviour {
 	/// 待ち時間
 	/// </summary>
 	private float waitingTime;
+	private int enternumber;
 	/// <summary>
 	/// 初期化
 	/// </summary>
@@ -52,9 +54,11 @@ public class TextRender : MonoBehaviour {
 	void Start () {
 		// テキストデータの読み込み
 		TextureManager = GetComponent<TextureManager> ();
+		//QuestionSelect = GetComponent<QuestionSelect> ();
 		text = new string[100];
 		flag = false;
 		num = 0;
+		enternumber = random.Randomnumber ();
 		ReadTextData();
 	}
 	/// <summary>
@@ -69,11 +73,11 @@ public class TextRender : MonoBehaviour {
 		// もしも65フレーム経って、なおかつ全部出し切っていなければ。
 		if (/*waitingTime >= Time.deltaTime*100 && flag == false && stageDataIndex != stageData.Length*/num < 4) {
 			//while(pattern != '\n'){
-			QuestionSelect.x -= 1;
+			//QuestionSelect.x -= 1;
 
-			while (QuestionSelect.x > 0) {
+			while (enternumber > 0) {
 				EnterTextData ();
-				QuestionSelect.x--;
+				enternumber--;
 			}
 
 			waitingTime = 0.0f;

@@ -4,36 +4,49 @@ using UnityEngine.UI;
 
 public class False : MonoBehaviour {
 
-	public Text label;
-	public Button restart;
-	public Image image;
-	public Text button;
 	public GameObject dungeon;
 	private Animator anim;
-
+	public GameObject bucket;
+	private float time;
+	private bool flag;
+	public GameObject za;
+	public GameObject n1;
+	public GameObject ne;
+	public GameObject n2;
+	
 	void Start () {
+		flag = false;
+		time = 0.0f;
 		anim = GetComponent<Animator> ();
-		label.enabled = false;
-		restart.enabled = false;
-		image.enabled = false;
-		button.enabled = false;
 		dungeon.GetComponent<dungeon> ().enabled = true;
-		StartCoroutine ("miss");
+		bucket.GetComponent<Hitbucket> ().enabled = true;
 	}
 
-	// textを表示しunitychanを"lose"にする
-	private IEnumerator miss(){
-		yield return new WaitForSeconds (4.0f);
-		label.enabled = true;
-		dungeon.GetComponent<dungeon> ().enabled = false;
-		anim.SetTrigger ("lose");
-		yield return new WaitForSeconds (2.5f);
-		label.enabled = false;
-		image.enabled = true;
-		restart.enabled = true;
-		button.enabled = true;
-		QuestionSelect.Initialization ();
-		yield break;
+	void Update(){
+		time += Time.deltaTime;
+		if ((int)time == 3 && flag == false) {
+			Instantiate (bucket, new Vector3 (transform.position.x, transform.position.y + 4, transform.position.z - 1), Quaternion.identity);
+			za.SendMessage("down");
+			n1.SendMessage("down");
+			ne.SendMessage("down");
+			n2.SendMessage("down");
+			anim.SetTrigger ("lose");
+			anim.SetTrigger ("run");
+			dungeon.GetComponent<dungeon> ().enabled = false;
+			flag = true;
+		}
+		if ((int)time == 7 && flag == true) {
+			dungeon.GetComponent<dungeon> ().enabled = true;
+			flag = false;
+		}
 	}
 
+	void OnTriggerEnter(Collider col){
+		if (col.tag == "goal") {
+			dungeon.GetComponent<dungeon> ().enabled = false;
+			anim.SetTrigger ("wait");
+			TrueMove.move ();
+			//QuestionSelect.Up (TrueMove.y++);
+		}
+	}
 }

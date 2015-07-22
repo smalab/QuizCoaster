@@ -3,29 +3,49 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class True : MonoBehaviour {
-
-	public Text label;
+	
 	public GameObject dungeon;
 	private Animator anim;
-	Score Score;
+	private float time;
+	private bool flag;
+	public Text se;
+	public Text i1;
+	public Text ka;
+	public Text i2;
+	public GameObject score;
+	TrueMove TrueMove;
 	
 	void Start () {
+		flag = false;
 		anim = GetComponent<Animator> ();
-		label.enabled = false;
-		StartCoroutine ("success");
-		Score = GetComponent<Score> ();
+		dungeon.GetComponent<dungeon> ().enabled = true;
+		TrueMove = GetComponent<TrueMove> ();
 	}
 
-	// テキストを表示しunitychanをジャンプさせる
-	private IEnumerator success(){
-		yield return new WaitForSeconds (1.0f);
-		label.enabled = true;
-		//Score.Add ();
-		anim.SetTrigger ("jump");
-		yield return new WaitForSeconds (1.2f);
-		dungeon.GetComponent<dungeon> ().enabled = false;
-		yield return new WaitForSeconds (0.5f);
-		dungeon.GetComponent<dungeon> ().enabled = true;
-		label.enabled = false;
+	void Update(){
+		time += Time.deltaTime;
+		if ((int)time == 1 && flag == false) {
+			anim.SetTrigger("jump");
+			se.SendMessage("big");
+			i1.SendMessage("big");
+			ka.SendMessage("big");
+			i2.SendMessage("big");
+			flag = true;
+		}
+		if((int)time == 2 && flag == true){
+			score.SendMessage("Addscore");
+			dungeon.GetComponent<dungeon> ().enabled = false;
+			flag = false;
+		}
+		if((int)time == 3 && flag == false){
+			dungeon.GetComponent<dungeon> ().enabled = true;
+		}
+	}
+	void OnTriggerEnter(Collider col){
+		if (col.tag == "goal") {
+			dungeon.GetComponent<dungeon> ().enabled = false;
+			anim.SetTrigger ("wait");
+			TrueMove.move();
+		}
 	}
 }

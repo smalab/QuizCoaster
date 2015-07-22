@@ -4,7 +4,7 @@ using System.Collections;
 public class QuestionSelect : MonoBehaviour {
 
 	public static int x;
-	static int[] data = new int[4];
+	static int[] data = new int[3];
 	static int i;
 	static bool flag;
 	static int length;
@@ -15,15 +15,14 @@ public class QuestionSelect : MonoBehaviour {
 	}
 	
 	public static void StartUp(){
-		x = Random.Range (1, 5);
-		Debug.Log ("x " + x);
-		data [0] = x;
+		//x = Random.Range (0, 4);
+		//data [0] = x;
 		Application.LoadLevel ("Question");
 	}
 		
 	public static void Up(int k) {
-		while (flag == false) {
-			x = Random.Range (1, 5);
+		/*while (flag == false) {
+			x = Random.Range (0, 4);
 			i = 0;
 			while (i <= k) {
 				if (data [i] == x)
@@ -34,7 +33,7 @@ public class QuestionSelect : MonoBehaviour {
 				}
 				i++;
 			}
-		}
+		}*/
 		Application.LoadLevel ("Question");
 	}
 
