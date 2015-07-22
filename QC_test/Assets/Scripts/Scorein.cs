@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class Resetscore : MonoBehaviour {
+public class Scorein : MonoBehaviour {
+
+	public Text score;
 
 	// Use this for initialization
 	void Start () {
-		Score.Reset ();
+		score.text = Scorecontroller.score.ToString ();
 	}
 	
 	// Update is called once per frame

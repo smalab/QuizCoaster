@@ -13,7 +13,7 @@ public class Scorecontroller : MonoBehaviour {
 	void Start () {
 		hundred.GetComponent<Hundredhide>().enabled = true;
 		hundred.GetComponent<Hundredappearance>().enabled = false;
-		GetComponent<Text>().text = score.ToString();
+		GetComponent<Text> ().text = score.ToString ();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +25,6 @@ public class Scorecontroller : MonoBehaviour {
 	}
 
 	private IEnumerator Addition(){
-		GetComponent<Text>().text = score.ToString();
 		hundred.GetComponent<Hundredhide>().enabled = true;
 		yield return new WaitForSeconds (1);
 		hundred.GetComponent<Hundredappearance>().enabled = true;
