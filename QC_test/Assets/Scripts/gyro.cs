@@ -24,6 +24,7 @@ public class gyro : MonoBehaviour {
 		q.x *= -1.0f;
 		q.y *= -1.0f;
 		m_camera.transform.localRotation = qq * q;
+		m_camera.transform.localEulerAngles = new Vector3(0,m_camera.transform.localEulerAngles.y,0f);
 		//Debug.Log ("attiude " + q);
 
 	}
