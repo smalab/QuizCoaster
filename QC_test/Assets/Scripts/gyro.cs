@@ -9,6 +9,9 @@ public class gyro : MonoBehaviour {
 	public GameObject m_camera;
 
 		// Use this for initialization
+	void Awake(){
+		Application.targetFrameRate = 15;
+	}
 	void Start () {
 		Input.gyro.enabled = true;
 	}
