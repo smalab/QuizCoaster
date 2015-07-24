@@ -41,7 +41,6 @@ public class cursor : MonoBehaviour {
 				if(time <= 3.0f && time > 2.0f)	image1.color = green;
 				if(time <= 2.0f && time > 1.0f)	image1.color = yellow;
 				if(time <= 1.0f && time > 0.0f)	image1.color = red;
-
 			}
 			if (gyroselect.selecti () == "left") {
 				transform.position += new Vector3 (-0.01f, 0, 0);

@@ -6,8 +6,12 @@ public class SelectController : MonoBehaviour {
 	private Animator anim;
 	private float speed = 0.07f; // unitychanを走らせる速さ
 	private bool flag; // imageのtagを取得したかどうかの判定
-	
+	public AudioClip audioclip;
+	AudioSource audiosource;
+
 	void Start () {
+		audiosource = gameObject.GetComponent<AudioSource> ();
+		audiosource.clip = audioclip;
 		anim = GetComponent<Animator> ();
 		gameObject.GetComponent<QuestionMove> ().enabled = true;
 	}
@@ -26,6 +30,7 @@ public class SelectController : MonoBehaviour {
 	
 	// imageにタッチするとそのimageのtagを取得しそのimageのcolliderに当たると次のsceneに遷移する
 	void OnTriggerEnter(Collider col) {
+		audiosource.Play ();
 		if (TrueMove.countnumber == random.questionnumber - 1) {
 			Application.LoadLevel ("Goal");
 		} else {
