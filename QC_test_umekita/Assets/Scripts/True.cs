@@ -14,8 +14,12 @@ public class True : MonoBehaviour {
 	public Text i2;
 	public GameObject score;
 	TrueMove TrueMove;
+	public AudioClip audioclip;
+	AudioSource audiosource;
 	
 	void Start () {
+		audiosource = gameObject.GetComponent<AudioSource> ();
+		audiosource.clip = audioclip;
 		flag = false;
 		anim = GetComponent<Animator> ();
 		dungeon.GetComponent<dungeon> ().enabled = true;
@@ -30,6 +34,7 @@ public class True : MonoBehaviour {
 			i1.SendMessage("big");
 			ka.SendMessage("big");
 			i2.SendMessage("big");
+			audiosource.Play ();
 			flag = true;
 		}
 		if((int)time == 2 && flag == true){

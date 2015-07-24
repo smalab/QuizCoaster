@@ -13,8 +13,12 @@ public class False : MonoBehaviour {
 	public GameObject n1;
 	public GameObject ne;
 	public GameObject n2;
+	public AudioClip audioclip;
+	AudioSource audiosource;
 	
 	void Start () {
+		audiosource = gameObject.GetComponent<AudioSource> ();
+		audiosource.clip = audioclip;
 		flag = false;
 		time = 0.0f;
 		anim = GetComponent<Animator> ();
@@ -30,6 +34,7 @@ public class False : MonoBehaviour {
 			n1.SendMessage("down");
 			ne.SendMessage("down");
 			n2.SendMessage("down");
+			audiosource.Play ();
 			anim.SetTrigger ("lose");
 			anim.SetTrigger ("run");
 			dungeon.GetComponent<dungeon> ().enabled = false;
