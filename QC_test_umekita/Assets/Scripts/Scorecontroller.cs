@@ -8,9 +8,13 @@ public class Scorecontroller : MonoBehaviour {
 	//public static Text hundred;
 	public static int i = 0;
 	public GameObject hundred;
+	public AudioClip audioclip;
+	AudioSource audiosource;
 
 	// Use this for initialization
 	void Start () {
+		audiosource = gameObject.GetComponent<AudioSource> ();
+		audiosource.clip = audioclip;
 		hundred.GetComponent<Hundredhide>().enabled = true;
 		hundred.GetComponent<Hundredappearance>().enabled = false;
 		GetComponent<Text> ().text = score.ToString ();
@@ -32,6 +36,7 @@ public class Scorecontroller : MonoBehaviour {
 			score += 2;
 			i++;
 			GetComponent<Text> ().text = score.ToString ();
+			audiosource.PlayOneShot (audioclip);
 			yield return new WaitForSeconds (0.01f);
 		}
 		hundred.GetComponent<Hundredappearance>().enabled = false;

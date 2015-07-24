@@ -34,7 +34,7 @@ public class False : MonoBehaviour {
 			n1.SendMessage("down");
 			ne.SendMessage("down");
 			n2.SendMessage("down");
-			audiosource.Play ();
+			audiosource.PlayOneShot (audioclip);
 			anim.SetTrigger ("lose");
 			anim.SetTrigger ("run");
 			dungeon.GetComponent<dungeon> ().enabled = false;

@@ -5,9 +5,13 @@ public class Hitbucket : MonoBehaviour {
 
 	public GameObject unity;
 	public float speed = 0.07f;
+	public AudioClip audioclip;
+	AudioSource audiosource;
 
 	// Use this for initialization
 	void Start () {
+		audiosource = gameObject.GetComponent<AudioSource> ();
+		audiosource.clip = audioclip;
 		unity = GameObject.Find("unitychan");
 	}
 	
@@ -19,6 +23,7 @@ public class Hitbucket : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.name == "unitychan") {
+			audiosource.PlayOneShot (audioclip);
 			Debug.Log ("entertag");
 			gameObject.GetComponent<Hitbucket> ().enabled = false;
 		}
