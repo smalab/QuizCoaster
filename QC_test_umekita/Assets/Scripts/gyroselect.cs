@@ -28,6 +28,14 @@ public class gyroselect : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit = new RaycastHit();
+			
+			if (Physics.Raycast(ray, out hit)){
+				GameObject obj = hit.collider.gameObject;
+				Debug.Log(obj.name);
+			}
+
 			if (gyrocontroller.y_gyro() < -5.0f) {
 				//transform.position += new Vector3 (0.01f, 0, 0);
 			Debug.Log ("right");
