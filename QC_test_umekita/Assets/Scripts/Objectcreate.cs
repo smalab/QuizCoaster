@@ -7,7 +7,7 @@ public class Objectcreate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		i = Random.Range (0, 4);
+		/*i = Random.Range (0, 4);
 		Debug.Log ("i = " + i);
 		if (i >= 1) {
 			GameObject box_2 = (GameObject)Resources.Load ("Prefabs/tresure_box_2");
@@ -42,7 +42,7 @@ public class Objectcreate : MonoBehaviour {
 			Instantiate (coin_4, coin_4.transform.position, coin_4.transform.rotation);
 			GameObject barrel_2 = (GameObject)Resources.Load ("Prefabs/Barrel_2");
 			Instantiate (barrel_2, barrel_2.transform.position, barrel_2.transform.rotation);
-		}
+		}*/
 	}
 	
 	// Update is called once per frame

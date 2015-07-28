@@ -56,7 +56,6 @@ public class TrueMove : MonoBehaviour {
 		
 		QuestionSelect.Up (0);
 		countnumber++;
-		Debug.Log ("countnumberrrrrrrrrr " + countnumber);
 		/*} else {
 			QuestionSelect.Initialization ();
 			reset ();
