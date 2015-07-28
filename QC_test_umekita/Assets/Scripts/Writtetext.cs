@@ -14,10 +14,14 @@ public class Writtetext : MonoBehaviour {
 	private string currentText = string.Empty;	// 現在の文字列
 	private float timeUntilDisplay = 0;		// 表示にかかる時間
 	private float timeElapsed = 1;			// 文字列の表示を開始した時間
-	private int lastUpdateCharacter = -1;		// 表示中の文字数
+	private int lastUpdateCharacter = 0;		// 表示中の文字数
+	public AudioClip audioclip;
+	AudioSource audiosource;
 
 	// Use this for initialization
 	void Start () {
+		audiosource = gameObject.GetComponent<AudioSource> ();
+		audiosource.clip = audioclip;
 	}
 	
 	// Update is called once per frame
@@ -28,6 +32,7 @@ public class Writtetext : MonoBehaviour {
 		if( displayCharacterCount != lastUpdateCharacter ){
 			uiText.text = currentText.Substring(0, displayCharacterCount);
 			lastUpdateCharacter = displayCharacterCount;
+			audiosource.PlayOneShot (audioclip);
 		}
 	}
 

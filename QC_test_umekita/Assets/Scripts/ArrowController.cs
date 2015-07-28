@@ -14,8 +14,8 @@ public class ArrowController : MonoBehaviour {
 	Renderer r_ren;
 	private Quaternion q;
 	private float time;
-	public GameObject p_anim;
-	public GameObject t_anim;
+	//public GameObject p_anim;
+	//public GameObject t_anim;
 	public GameObject text;
 	private bool flag;
 	//public GameObject quetion;
@@ -43,7 +43,7 @@ public class ArrowController : MonoBehaviour {
 				text.SendMessage ("Tutorial");
 			}
 				tutorial.enabled = true;
-				t_anim.SendMessage ("Appearance");
+				//t_anim.SendMessage ("Appearance");
 				t_text.enabled = true;
 				l_ren.enabled = true;
 				r_ren.enabled = false;
@@ -53,14 +53,14 @@ public class ArrowController : MonoBehaviour {
 				flag = true;
 				text.SendMessage ("Neutral");
 			}
-				t_anim.SendMessage ("Exit");
-				p_anim.SendMessage ("Exit");
+				//t_anim.SendMessage ("Exit");
+				//p_anim.SendMessage ("Exit");
 				//tutorial.enabled = false;
 				//play.enabled = false;
-				t_text.enabled = false;
-				p_text.enabled = false;
-				l_ren.enabled = true;
-				r_ren.enabled = true;
+				//t_text.enabled = false;
+				//p_text.enabled = false;
+				//l_ren.enabled = true;
+				//r_ren.enabled = true;
 				time = 0;
 		} else {
 			if(flag == true){
@@ -68,10 +68,10 @@ public class ArrowController : MonoBehaviour {
 				text.SendMessage ("Play");
 			}
 				play.enabled = true;
-				p_anim.SendMessage ("Appearance");
-				p_text.enabled = true;
-				l_ren.enabled = false;
-				r_ren.enabled = true;
+				//p_anim.SendMessage ("Appearance");
+				//p_text.enabled = true;
+				//l_ren.enabled = false;
+				//r_ren.enabled = true;
 				time += Time.deltaTime;
 			if(time > 5.0f) QuestionSelect.StartUp();
 			}
