@@ -99,6 +99,7 @@ public class Goal : MonoBehaviour {
 		if (col.tag == "goal") {
 			dungeon.GetComponent<dungeon> ().enabled = false;
 			anim.SetTrigger ("joy");
+			score.SendMessage("Center");
 		}
 	}
 }
