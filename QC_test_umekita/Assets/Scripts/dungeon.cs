@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class dungeon : MonoBehaviour {
-	private float speed = 0.07f; // dungeonを動かす速さ
+	public float speed; // dungeonを動かす速さ
 
 	// dungeonをunitychan方向に動かす
 	void Update () {

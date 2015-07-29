@@ -14,7 +14,7 @@ public class TextRender : MonoBehaviour {
 	/// <summary>
 	/// テキストデータのパス
 	/// </summary>
-	private string filePath = "text/test";
+	private string filePath = "text/umekita_tango";
 	/// <summary>
 	/// 読み込んだテキストデータを格納するテキストアセット
 	/// </summary>
