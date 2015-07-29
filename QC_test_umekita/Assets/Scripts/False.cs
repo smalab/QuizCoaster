@@ -9,14 +9,18 @@ public class False : MonoBehaviour {
 	public GameObject bucket;
 	private float time;
 	private bool flag;
-	public GameObject za;
-	public GameObject n1;
-	public GameObject ne;
-	public GameObject n2;
+	public Text za;
+	public Text n1;
+	public Text ne;
+	public Text n2;
 	public AudioClip audioclip;
 	AudioSource audiosource;
 	
 	void Start () {
+		za.enabled = false;
+		n1.enabled = false;
+		ne.enabled = false;
+		n2.enabled = false;
 		audiosource = gameObject.GetComponent<AudioSource> ();
 		audiosource.clip = audioclip;
 		flag = false;
@@ -30,6 +34,10 @@ public class False : MonoBehaviour {
 		time += Time.deltaTime;
 		if ((int)time == 3 && flag == false) {
 			Instantiate (bucket, new Vector3 (transform.position.x, transform.position.y + 4, transform.position.z - 1), Quaternion.identity);
+			za.enabled = true;
+			n1.enabled = true;
+			ne.enabled = true;
+			n2.enabled = true;
 			za.SendMessage("down");
 			n1.SendMessage("down");
 			ne.SendMessage("down");
@@ -40,9 +48,19 @@ public class False : MonoBehaviour {
 			dungeon.GetComponent<dungeon> ().enabled = false;
 			flag = true;
 		}
+		/*if ((int)time == 5 && flag == true) {
+			za.enabled = false;
+			n1.enabled = false;
+			ne.enabled = false;
+			n2.enabled = false;
+			flag = false;
+		}*/
 		if ((int)time == 7 && flag == true) {
 			dungeon.GetComponent<dungeon> ().enabled = true;
-			flag = false;
+			za.enabled = false;
+			n1.enabled = false;
+			ne.enabled = false;
+			n2.enabled = false;
 		}
 	}
 

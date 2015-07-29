@@ -18,6 +18,10 @@ public class True : MonoBehaviour {
 	AudioSource audiosource;
 	
 	void Start () {
+		se.enabled = false;
+		i1.enabled = false;
+		ka.enabled = false;
+		i2.enabled = false;
 		audiosource = gameObject.GetComponent<AudioSource> ();
 		audiosource.clip = audioclip;
 		flag = false;
@@ -30,6 +34,10 @@ public class True : MonoBehaviour {
 		time += Time.deltaTime;
 		if ((int)time == 1 && flag == false) {
 			anim.SetTrigger("jump");
+			se.enabled = true;
+			i1.enabled = true;
+			ka.enabled = true;
+			i2.enabled = true;
 			se.SendMessage("big");
 			i1.SendMessage("big");
 			ka.SendMessage("big");
@@ -44,6 +52,14 @@ public class True : MonoBehaviour {
 		}
 		if((int)time == 3 && flag == false){
 			dungeon.GetComponent<dungeon> ().enabled = true;
+			flag = true;
+		}
+
+		if ((int)time == 4 && flag == true) {
+			se.enabled = false;
+			i1.enabled = false;
+			ka.enabled = false;
+			i2.enabled = false;
 		}
 	}
 	void OnTriggerEnter(Collider col){
