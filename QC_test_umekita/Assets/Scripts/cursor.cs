@@ -40,9 +40,9 @@ public class cursor : MonoBehaviour {
 			if (gyroselect.selecti () != null)
 				time -= Time.deltaTime;
 			Debug.Log ("time " + time);
-			if (gyrocontroller.y_gyro() < -5.0f)
+			if (gyrocontroller.y_gyro() < -1.0f)
 				time = 3.0f;
-			if (gyrocontroller.y_gyro() > 5.0f)
+			if (gyrocontroller.y_gyro() > 1.0f)
 				time = 3.0f;
 
 			if (gyroselect.selecti () == "right") {

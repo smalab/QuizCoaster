@@ -28,13 +28,13 @@ public class gyroselect : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-			if (gyrocontroller.y_gyro() < -5.0f) {
+			if (gyrocontroller.y_gyro() < -1.0f) {
 				//transform.position += new Vector3 (0.01f, 0, 0);
 			Debug.Log ("right");
 				select = "right";
 				flag2 = cursor.ok();
 			}
-			if (gyrocontroller.y_gyro () > 5.0f) {
+			if (gyrocontroller.y_gyro () > 1.0f) {
 				//transform.position += new Vector3 (-0.01f, 0, 0);
 				select = "left";
 				flag2 = cursor.ok ();
