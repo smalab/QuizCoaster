@@ -39,7 +39,7 @@ public class random : MonoBehaviour {
 	
 	public void initialization() {
 		while(i < number){
-			data[i] = 0;
+			data[i] = 6;
 			i++;
 		}
 	}

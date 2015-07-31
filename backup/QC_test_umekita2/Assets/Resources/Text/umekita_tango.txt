@@ -4,7 +4,7 @@ right	シー	mistake	P
 mistake	Q	right	ディー	
 right	イー	mistake	R	
 mistake	S	right	エフ	
-right	ジー	mistake	T	
+right	ジー	mistake	T	
 mistake	U	right	エイチ	
 right	アイ	mistake	V	
 mistake	W	right	ジェイ	
