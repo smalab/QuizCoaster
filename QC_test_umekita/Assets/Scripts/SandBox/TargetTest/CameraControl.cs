@@ -8,15 +8,26 @@ public class CameraControl : MonoBehaviour {
 
 	IMoveMe _moveMe;
 	RaycastHit hit;
+	Gyroscope gyro;
+
+	void Start ()
+	{
+		if (SystemInfo.supportsGyroscope) {
+			gyro = Input.gyro;
+			gyro.enabled = true;
+		}
+	}
+
 
 	// Use this for initialization
-	void Start () {
-		_moveMe = new MoveMe ();
+
+	public void Initialize(IMoveMe _moveMe){
+		this._moveMe = _moveMe;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		_moveMe.MoveAngleByKey (transform, new Vector3(1f,1f,0));
+		//_moveMe.MoveAngleByKey (transform, new Vector3(1f,1f,0));
+		_moveMe.MoveAngleByHead (transform, new Vector3(1f,1f,0),gyro);
 
 		if(Physics.Raycast(transform.position,Vector3.forward+transform.rotation.eulerAngles,out hit))
 		{

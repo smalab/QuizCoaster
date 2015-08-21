@@ -8,4 +8,11 @@ public class MoveMe : IMoveMe {
 		return _transform;
 	}
 
+	public Transform MoveAngleByHead(Transform _transform, Vector3 speed, Gyroscope gyro){
+		Debug.Log (gyro.rotationRate.x);
+		_transform.Rotate (new Vector3 (-gyro.rotationRate.x*speed.x, -gyro.rotationRate.y*speed.y, 0));
+		return _transform;
+	}
+
+
 }
