@@ -9,10 +9,11 @@ public class MoveMe : IMoveMe {
 	}
 
 	public Transform MoveAngleByHead(Transform _transform, Vector3 speed, Gyroscope gyro){
-		Debug.Log (gyro.rotationRate.x);
+		if (!gyro.enabled) {
+			throw new UnityException ("Gyro not enabled");
+		}
 		_transform.Rotate (new Vector3 (-gyro.rotationRate.x*speed.x, -gyro.rotationRate.y*speed.y, 0));
 		return _transform;
 	}
-
 
 }

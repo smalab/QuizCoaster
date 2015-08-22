@@ -14,7 +14,7 @@ public class CameraControl : MonoBehaviour {
 	{
 		if (SystemInfo.supportsGyroscope) {
 			gyro = Input.gyro;
-			gyro.enabled = true;
+		//	gyro.enabled = true;
 		}
 	}
 
