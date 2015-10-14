@@ -50,7 +50,7 @@ public class gyroselect : MonoBehaviour {
 	public void touchimage () {
 		if (select == "right") tag = TextureManager.right.tag;
 		if (select == "left") tag = TextureManager.left.tag;
-		if (tag == "right") flag1 = true;
+		if (tag == "seikai") flag1 = true;
 		if (tag == "mistake") flag1 = false;
 	}
 

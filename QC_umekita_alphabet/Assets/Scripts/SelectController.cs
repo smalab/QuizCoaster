@@ -32,7 +32,7 @@ public class SelectController : MonoBehaviour {
 		if (TrueMove.countnumber == random.questionnumber - 1) {
 			Application.LoadLevel ("Goal");
 		} else {
-			if (col.tag == "right") {
+			if (col.tag == "seikai") {
 				gameObject.GetComponent<QuestionMove> ().enabled = false;
 				Application.LoadLevel ("True");
 			}

@@ -13,9 +13,9 @@ public class TextureManager : MonoBehaviour
 	public GameObject right;
 	public static Transform leftPosition;
 	public static Transform rightPosition;
-	public float x = -2.406f;
-	public float y = 1.802f;
-	public float z = -7.76f;
+	public float x = 2.7f;
+	public float y = 1.59f;
+	public float z = 8.24f;
 	private bool flag1;
 	private bool flag2;
 	public Changequestiontext Changequstiontext;
@@ -29,8 +29,8 @@ public class TextureManager : MonoBehaviour
 		right = GameObject.CreatePrimitive (PrimitiveType.Cube);
 		left.transform.position = new Vector3 (x, y, z);
 		right.transform.position = new Vector3 (-x, y, z);
-		left.transform.Rotate (0, 180, 180);
-		right.transform.Rotate (0, 180, 180);
+		left.transform.Rotate (0, 0, 180);
+		right.transform.Rotate (0, 0, 180);
 		left.transform.localScale = new Vector3(4, 4, 0.1f);
 		right.transform.localScale = new Vector3 (4, 4, 0.1f);
 		SphereCollider leftCollider = left.AddComponent <SphereCollider>();
@@ -75,13 +75,13 @@ public class TextureManager : MonoBehaviour
 	}
 	
 	public void LeftTag(string l_tag){
-		if (l_tag == "right")
+		if (l_tag == "seikai")
 			flag1 = true;
 		left.tag = (l_tag);
 	}
 	
 	public void RightTag(string r_tag){
-		if (r_tag == "right")
+		if (r_tag == "seikai")
 			flag2 = true;
 		right.tag = (r_tag);
 	}

@@ -8,8 +8,8 @@ public class cursor : MonoBehaviour {
 	public Image image1;
 	public Image image2;
 	public float time;
-	public static bool flag;
-	private bool seflag;
+	public static bool flag = false;
+	private bool seflag;   //    otowonarashitakadouka
 	private Color green = new Color (79f / 255f, 227f / 255f, 20f / 255f, 1f);
 	private Color yellow = new Color (246f / 255f, 1f, 96f / 255, 1f);
 	private Color red = new Color (1f, 0f, 0f, 1f);

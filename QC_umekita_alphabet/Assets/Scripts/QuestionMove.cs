@@ -26,6 +26,7 @@ public class QuestionMove : MonoBehaviour {
 	
 	//　unitychanをタッチしたimageの方向に動かす
 	void Update () {
+		Debug.Log ("fowaaaaaaaaaaaaard" + cursor.ok ());
 		//Debug.Log ("transform " + target.position);
 		if (cursor.ok () == true) {  // imageをタッチしたかどうかの判定
 			Debug.Log ("QuetionMove");
