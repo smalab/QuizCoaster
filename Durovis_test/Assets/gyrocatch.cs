@@ -19,9 +19,9 @@ public class gyrocatch : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Input.gyro.enabled = true;
-		if (File.Exists("Assets/log.csv")) {
+		if (File.Exists("Assets/Resources/log.txt")) {
 			Debug.Log("fileatta");
-			FileStream f = new System.IO.FileStream("Assets/log.csv", FileMode.Append, FileAccess.Write);
+			FileStream f = new System.IO.FileStream("Assets/Resources/log.txt", FileMode.Append, FileAccess.Write);
 			Encoding utf8Enc = Encoding.GetEncoding("UTF-8");
 			StreamWriter writer = new StreamWriter(f, utf8Enc);
 			writer.WriteLine("");
@@ -48,7 +48,7 @@ public class gyrocatch : MonoBehaviour {
 
 	public void logSave(string x, string y, string z){
 
-		FileStream f = new FileStream("Assets/log.csv", FileMode.Append, FileAccess.Write);
+		FileStream f = new FileStream("Assets/Resources/log.txt", FileMode.Append, FileAccess.Write);
 		Encoding utf8Enc = Encoding.GetEncoding("UTF-8");
 		StreamWriter writer = new StreamWriter(f, utf8Enc);
 		writer.Write(x + ",");
