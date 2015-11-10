@@ -9,18 +9,19 @@ public class False : MonoBehaviour {
 	public GameObject bucket;
 	private float time;
 	private bool flag;
-	public Text za;
+	/*public Text za;
 	public Text n1;
 	public Text ne;
-	public Text n2;
+	public Text n2;*/
 	public AudioClip audioclip;
 	AudioSource audiosource;
+	public Text text;
 	
 	void Start () {
-		za.enabled = false;
+		/*za.enabled = false;
 		n1.enabled = false;
 		ne.enabled = false;
-		n2.enabled = false;
+		n2.enabled = false;*/
 		audiosource = gameObject.GetComponent<AudioSource> ();
 		audiosource.clip = audioclip;
 		flag = false;
@@ -28,20 +29,22 @@ public class False : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		dungeon.GetComponent<dungeon> ().enabled = true;
 		bucket.GetComponent<Hitbucket> ().enabled = true;
+		text.enabled = false;
 	}
 
 	void Update(){
 		time += Time.deltaTime;
 		if ((int)time == 3 && flag == false) {
 			Instantiate (bucket, new Vector3 (transform.position.x, transform.position.y + 4, transform.position.z - 1), Quaternion.identity);
-			za.enabled = true;
+			/*za.enabled = true;
 			n1.enabled = true;
 			ne.enabled = true;
 			n2.enabled = true;
 			za.SendMessage("down");
 			n1.SendMessage("down");
 			ne.SendMessage("down");
-			n2.SendMessage("down");
+			n2.SendMessage("down");*/
+			//text.text = "<size=35><b><color=#00FF80FF>ざんねん</color></b></size>"; 
 			audiosource.PlayOneShot (audioclip);
 			anim.SetTrigger ("lose");
 			anim.SetTrigger ("run");
@@ -55,12 +58,17 @@ public class False : MonoBehaviour {
 			n2.enabled = false;
 			flag = false;
 		}*/
+
+		if ((int)time == 4 && flag == true) {
+			text.enabled = true;
+		}
+
 		if ((int)time == 7 && flag == true) {
 			dungeon.GetComponent<dungeon> ().enabled = true;
-			za.enabled = false;
+			/*za.enabled = false;
 			n1.enabled = false;
 			ne.enabled = false;
-			n2.enabled = false;
+			n2.enabled = false;*/
 		}
 	}
 

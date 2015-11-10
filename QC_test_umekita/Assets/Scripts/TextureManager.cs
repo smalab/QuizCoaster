@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class TextureManager : MonoBehaviour
 {
 	
-	string BASE_TEXTURE = "Textures/";
-	string SECOND_TEXTURE = "Textures/";
+	string BASE_TEXTURE = "Word/";
+	string SECOND_TEXTURE = "Word/";
 	Texture2D image1;
 	Texture2D image2;
 	public GameObject left;
