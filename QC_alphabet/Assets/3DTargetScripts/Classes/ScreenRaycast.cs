@@ -5,10 +5,12 @@ public class ScreenRaycast : MonoBehaviour {
 	IOnScreenCollide _OnScreenCollide;
 	Gamestart Gamestart;
 	cursor cursor;
+	Restart Restart;
 
 	void Start(){
 		Gamestart = gameObject.GetComponent<Gamestart> ();
 		cursor = gameObject.GetComponent<cursor> ();
+		Restart = gameObject.GetComponent<Restart> ();
 
 	}
 
@@ -22,7 +24,7 @@ public class ScreenRaycast : MonoBehaviour {
 	void Update () {
 		string hit = _OnScreenCollide.GetRaycastHitName(transform);
 		cursor.whichcursor = hit;
-		Debug.Log (hit);
+		Restart.homebutton = hit;
 
 		if (hit != null) {
 			if (hit == "right") {
