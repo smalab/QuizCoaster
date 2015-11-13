@@ -11,9 +11,11 @@ public class Goal : MonoBehaviour {
 	public GameObject score;
 	public AudioClip audioclip;
 	AudioSource audiosource;
+	GameObject BGM;
 
 	
 	void Start () {
+		BGM = GameObject.Find ("BGM");
 		audiosource = gameObject.GetComponent<AudioSource> ();
 		audiosource.clip = audioclip;
 		target.enabled = false;
@@ -38,6 +40,7 @@ public class Goal : MonoBehaviour {
 		}
 		yield return new WaitForSeconds (1.0f);
 		text.text = "<size=50><color=#1CD1FFFF>ゴール!</color></size>";
+		Destroy (BGM);
 		audiosource.Play ();
 		yield return new WaitForSeconds (2.0f);
 		target.enabled = true;
