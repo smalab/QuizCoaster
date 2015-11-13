@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Goal : MonoBehaviour {
 
-	public MeshRenderer target;
+	public GameObject target;
 	public GameObject dungeon;
 	private Animator anim;
 	public Text text;
@@ -18,7 +18,7 @@ public class Goal : MonoBehaviour {
 		BGM = GameObject.Find ("BGM");
 		audiosource = gameObject.GetComponent<AudioSource> ();
 		audiosource.clip = audioclip;
-		target.enabled = false;
+		target.gameObject.SetActive(false);
 		anim = GetComponent<Animator> ();
 		dungeon.GetComponent<dungeon> ().enabled = true;
 		StartCoroutine ("move");
@@ -43,7 +43,7 @@ public class Goal : MonoBehaviour {
 		Destroy (BGM);
 		audiosource.Play ();
 		yield return new WaitForSeconds (2.0f);
-		target.enabled = true;
+		target.gameObject.SetActive(true);
 		text.text = "<size=39><color=#FFFFFFFF> さいごに家の絵を見ておわってね</color></size>"; 
 		yield return new WaitForSeconds (6.0f);
 		audiosource.Stop ();

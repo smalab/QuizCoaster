@@ -14,7 +14,7 @@ public class Startbutton : MonoBehaviour {
 	}
 
 	public void Pushstart(){
-		Debug.Log ("push");
+		Debug.Log ("*****push******");
 		Application.LoadLevel ("explain");
 	}
 }

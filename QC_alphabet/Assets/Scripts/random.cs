@@ -26,6 +26,7 @@ public class random : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("num " + num);
 	}
 
 	public static int Randomnumber(){
@@ -46,5 +47,6 @@ public class random : MonoBehaviour {
 	public static void fill(){
 		while (x < number - 1) data [x] = data [++x];
 	}
+
 }
 

@@ -30,6 +30,7 @@ public class SelectController : MonoBehaviour {
 	void OnTriggerEnter(Collider col) {
 		truefalse = col.tag;
 		if (TrueMove.countnumber == random.questionnumber - 1) {
+			TrueMove.reset();
 			Application.LoadLevel ("Goal");
 		} else {
 			if (col.tag == "right") {

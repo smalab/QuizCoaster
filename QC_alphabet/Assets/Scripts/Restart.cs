@@ -9,10 +9,13 @@ public class Restart : MonoBehaviour {
 	void Start() {
 		Scorecontroller = gameObject.GetComponent<Scorecontroller> ();
 	}
-	public void Update(){
+
+	void Update(){
+		Debug.Log ("InRestart");
 		if(homebutton == "Home"){
+			Debug.Log("homebutton == Home");
 			Scorecontroller.Restscore();
-		Application.LoadLevel ("Start");
+			Application.LoadLevel ("Start");
+		}
 	}
-}
 }
