@@ -520,7 +520,7 @@ namespace NCMB
 		// Clears all notifications.
 		public static void ClearAll ()
 		{
-			NotificationServices.ClearRemoteNotifications ();
+			UnityEngine.iOS.NotificationServices.ClearRemoteNotifications ();
 			
 			
 

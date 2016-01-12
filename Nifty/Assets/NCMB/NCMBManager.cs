@@ -151,7 +151,7 @@ namespace NCMB
 
 		void Update ()
 		{
-			if (NotificationServices.remoteNotificationCount > 0) {
+			if (UnityEngine.iOS.NotificationServices.remoteNotificationCount > 0) {
 				ProcessNotification ();
 				NCMBPush.ClearAll ();
 			}
@@ -160,7 +160,7 @@ namespace NCMB
 		void ProcessNotification ()
 		{
 			// Payload data dictionary
-			IDictionary dd = NotificationServices.remoteNotifications [0].userInfo;
+			IDictionary dd = UnityEngine.iOS.NotificationServices.remoteNotifications [0].userInfo;
 
 			// Payload key list
 			string[] kl = new string[] { 
@@ -190,11 +190,11 @@ namespace NCMB
 
 			// Set message as alertBody
 			if (string.IsNullOrEmpty (vl [im])) {
-				vl [im] = NotificationServices.remoteNotifications [0].alertBody;
+				vl [im] = UnityEngine.iOS.NotificationServices.remoteNotifications [0].alertBody;
 			}
 
 			// Create payload
-			NCMBPushPayload pl = new NCMBPushPayload (vl [0], vl [1], vl [2], vl [3], vl [4], vl [5], vl [6], NotificationServices.remoteNotifications [0].userInfo);
+			NCMBPushPayload pl = new NCMBPushPayload (vl [0], vl [1], vl [2], vl [3], vl [4], vl [5], vl [6], UnityEngine.iOS.NotificationServices.remoteNotifications [0].userInfo);
 
 			// Notify
 			if (onNotificationReceived != null) {
