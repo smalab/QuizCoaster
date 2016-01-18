@@ -13,7 +13,7 @@ public class OriginalInspectorEditor : Editor
 		EditorGUILayout.Space();
 		
 		if (Application.isPlaying) {
-			AddData (Random.Range(0.0f, 5.0f));
+			AddData (Random.Range(-5.0f, 5.0f));
 		}
 		
 		var area = GUILayoutUtility.GetRect(Screen.width, 200f);
