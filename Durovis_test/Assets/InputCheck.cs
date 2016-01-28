@@ -11,16 +11,21 @@ public class InputCheck : MonoBehaviour
 	private Vector3 acceleration;
 	/// <summary>フォント</summary>
 	//private GUIStyle labelStyle;
+	public Camera camera;
 	private float time;
 	private float scale = 1.0f;
-	private Vector3 position;
 	private Vector3 rotation;
 	private Vector3 gyro;
 	private Vector3 gravity;
-	private string position_x;
-	private string position_y;
-	private string position_z;
+	private string rotation_x;
+	private string rotation_y;
+	private string rotation_z;
+	private string gyro_x;
+	private string gyro_y;
+	private string gyro_z;
 	private string gravity_x;
+	private string gravity_y;
+	private string gravity_z;
 	// 必要な変数を宣言する
 	DateTime dtNow = DateTime.Now;
 
@@ -30,14 +35,14 @@ public class InputCheck : MonoBehaviour
 		Input.gyro.enabled = true;
 		if (File.Exists (Application.persistentDataPath + "/log.csv"/*"Assets/Resources/log.csv"*/)) {
 			Debug.Log ("fileatta");
-			FileStream f = new System.IO.FileStream (Application.persistentDataPath + "/log.csv"/*"Assets/Resources/log.csv"*/, FileMode.Append, FileAccess.Write);
+			FileStream f = new System.IO.FileStream (Application.dataPath + "/log.csv"/*"Assets/Resources/log.csv"*/, FileMode.Append, FileAccess.Write);
 			Encoding utf8Enc = Encoding.GetEncoding ("UTF-8");
 			StreamWriter writer = new StreamWriter (f, utf8Enc);
 			writer.WriteLine ("");
 			writer.Write(dtNow + ",");
 			writer.Close ();
 		} else {
-			FileStream f = new System.IO.FileStream (Application.persistentDataPath + "/log.csv"/*"Assets/Resources/log.csv"*/, FileMode.Append, FileAccess.Write);
+			FileStream f = new System.IO.FileStream (Application.dataPath + "/log.csv"/*"Assets/Resources/log.csv"*/, FileMode.Append, FileAccess.Write);
 			Encoding utf8Enc = Encoding.GetEncoding ("UTF-8");
 			StreamWriter writer = new StreamWriter (f, utf8Enc);
 			writer.Write(dtNow + ",");
@@ -60,29 +65,37 @@ public class InputCheck : MonoBehaviour
 			if (Time.frameCount % 15 == 0) {
 				gyro = Input.gyro.rotationRateUnbiased;
 				gravity = Input.acceleration;
-				position = new Vector3 (-gyro.y, gyro.x, 0) * scale;
-				//rotation = new Vector3(gravity.x, gravity.y, gravity.z) * scale;
-				this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z) + position;
-				position_x = Mathf.RoundToInt (this.transform.position.x).ToString ();
-				position_y = Mathf.RoundToInt (this.transform.position.y).ToString ();
-				position_z = Mathf.RoundToInt (this.transform.position.z).ToString ();
+				//this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z) + position;
+				rotation_x = Mathf.RoundToInt (camera.transform.rotation.x).ToString ();
+				rotation_y = Mathf.RoundToInt (camera.transform.rotation.y).ToString ();
+				rotation_z = Mathf.RoundToInt (camera.transform.rotation.z).ToString ();
 				gravity_x = gravity.x.ToString ();
-				logSave (position_x, position_y, gravity_x);
+				gravity_y = gravity.y.ToString ();
+				gravity_z = gravity.z.ToString ();
+				gyro_x = gyro.x.ToString();
+				gyro_y = gyro.y.ToString();
+				gyro_z = gyro.z.ToString();
+				logSave (rotation_x, rotation_y, rotation_z, gravity_x, gravity_y, gravity_z, gyro_x, gyro_y, gyro_z);
 				//time = 0.0f;
 			}
 		}
 	}
 
-	public void logSave(string x, string y, string z){
+	public void logSave(string rotation_x, string rotation_y, string rotation_z, string gravty_x, string gravty_y, string gravty_z, string gyro_x, string gyro_y, string gyro_z){
 		
-		FileStream f = new FileStream(Application.persistentDataPath + "/log.csv"/*"Assets/Resources/log.csv"*/, FileMode.Append, FileAccess.Write);
+		FileStream f = new FileStream(Application.dataPath + "/log.csv" /*"Assets/Resources/log.csv"*/, FileMode.Append, FileAccess.Write);
 		Encoding utf8Enc = Encoding.GetEncoding("UTF-8");
 		StreamWriter writer = new StreamWriter(f, utf8Enc);
-		writer.Write(x + ",");
-		writer.Write(y + ",");
-		writer.Write(z + ",");
+		writer.Write(rotation_x + ",");
+		writer.Write(rotation_y + ",");
+		writer.Write(rotation_z + ",");
+		writer.Write(gravty_x + ",");
+		writer.Write(gravty_y + ",");
+		writer.Write(gravty_z + ",");
+		writer.Write(gyro_x + ",");
+		writer.Write(gyro_y + ",");
+		writer.Write(gyro_z + ",");
 		writer.Close();
-		
 	}
 
 	/*void OnGUI()
