@@ -6,7 +6,7 @@ using System.Text;
 /*using NCMB;
 using System.Collections.Generic;*/
 
-public class Dateadd : MonoBehaviour {
+public class Dataadd : MonoBehaviour {
 
 	private string filePath = "/Resources/logfile/";
 	private string fileName = "log.csv";

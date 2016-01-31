@@ -7,10 +7,10 @@ public class push : MonoBehaviour {
 
 	NCMBObject obj = new NCMBObject ("Book");
 	public GameObject a;
-	public static Dateadd dateadd;
+	public static Dataadd dateadd;
 	// Use this for initialization
 	void Start () {
-		dateadd = a.GetComponent<Dateadd> ();
+		dateadd = a.GetComponent<Dataadd> ();
 		Debug.Log (dateadd.time);
 	}
 	
