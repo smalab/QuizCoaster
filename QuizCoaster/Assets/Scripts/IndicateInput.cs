@@ -8,7 +8,7 @@ public class IndicateInput : MonoBehaviour {
 	public Image okimage;
 	public Text passwordtext;
 	public Image passwordimage;
-
+	public InputField inputfield;
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +16,12 @@ public class IndicateInput : MonoBehaviour {
 		okimage.enabled = false;
 		passwordtext.enabled = false;
 		passwordimage.enabled = false;
+		inputfield.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	public void IndicateInputPassword(){
@@ -28,6 +29,7 @@ public class IndicateInput : MonoBehaviour {
 		okimage.enabled = true;
 		passwordtext.enabled = true;
 		passwordimage.enabled = true;
+		inputfield.enabled = true;
 		Time.timeScale = 0.0f;
 	}
 }

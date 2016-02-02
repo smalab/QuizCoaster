@@ -14,7 +14,10 @@ public class CameraInitialize : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (time);
+		//obj.transform.LookAt(10, 20, 10);
+		//obj.transform.Rotate(new Vector3(obj.transform.rotation.x,obj.transform.rotation.y,0f));
+		//obj.transform.rotation = new Quaternion(obj.transform.rotation.x, obj.transform.rotation.y, 0.0f);
+		//Debug.Log (time);
 		time += Time.deltaTime;
 		if(time > 3.0f){
 			//Time.timeScale = 0.0f;
