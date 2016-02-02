@@ -8,6 +8,7 @@ public class CameraInitialize : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		Time.timeScale = 0.0f;
 		Time.timeScale = 1.0f;
 	}
@@ -15,7 +16,7 @@ public class CameraInitialize : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//obj.transform.LookAt(10, 20, 10);
-		//obj.transform.Rotate(new Vector3(obj.transform.rotation.x,obj.transform.rotation.y,0f));
+		//obj.transform.Rotate(new Vector3(obj.transform.rotation.x,obj.transform.rotation.y,0.0f));
 		//obj.transform.rotation = new Quaternion(obj.transform.rotation.x, obj.transform.rotation.y, 0.0f);
 		//Debug.Log (time);
 		time += Time.deltaTime;
